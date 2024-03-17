@@ -49,37 +49,50 @@ class IntroScreen extends StatelessWidget {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: SafeArea(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/intro.jpg"),
-              fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          // Фоновое изображение
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/intro/intro-bg.webp"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Spacer(flex: 3),
-                Text(
-                  "Виртуальный музыкальный мир",
-                  style: h1Style.copyWith(color: Colors.white),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  "Погрузитесь в выбор инструментов с VR-технологиями",
-                  style: h3Style.copyWith(color: Colors.white),
-                ),
-                const SizedBox(height: 20),
-                introButton(),
-                const Spacer(),
-              ],
+          // Полупрозрачный слой для затемнения фона
+          Container(
+            color: Colors.black.withOpacity(
+                0.5), // Регулируйте этот параметр для достижения желаемой степени темноты
+          ),
+          // Ваш интерфейс, например SafeArea и остальные элементы
+          SafeArea(
+            bottom:
+                false, // Ignore safe area at the top to extend behind the status bar
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Spacer(flex: 3),
+                  Text(
+                    "Виртуальный музыкальный мир",
+                    style: h1Style.copyWith(color: Colors.white),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    "Погрузитесь в выбор инструментов с VR-технологиями",
+                    style: h3Style.copyWith(color: Colors.white),
+                  ),
+                  const SizedBox(height: 20),
+                  introButton(),
+                  const Spacer(),
+                ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

@@ -20,4 +20,15 @@ class AppTheme {
       ),
     ),
   );
+
+  static ThemeData darkTheme = ThemeData(
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.black,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.orange,
+      ),
+    ),
+  );
 }
