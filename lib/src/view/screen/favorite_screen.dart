@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:office_furniture_store/core/app_style.dart';
-import 'package:office_furniture_store/src/view/screen/home_screen.dart';
-import 'package:office_furniture_store/src/view/widget/empty_widget.dart';
-import 'package:office_furniture_store/src/view/widget/music_instrument_list_view.dart';
+import 'package:music_store/core/app_style.dart';
+import 'package:music_store/src/view/screen/home_screen.dart';
+import 'package:music_store/src/view/widget/empty_widget.dart';
+import 'package:music_store/src/view/widget/music_instrument_list_view.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
@@ -24,7 +24,7 @@ class FavoriteScreen extends StatelessWidget {
                     )
                   : const EmptyWidget(
                       type: EmptyWidgetType.favorite,
-                      title: "Empty",
+                      title: "Пустой",
                     )
             ],
           ),

@@ -1,16 +1,16 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:office_furniture_store/core/app_color.dart';
-import 'package:office_furniture_store/core/app_style.dart';
+import 'package:music_store/core/app_color.dart';
+import 'package:music_store/core/app_extension.dart';
+import 'package:music_store/core/app_style.dart';
+import 'package:music_store/src/controller/music_instrumental_controller.dart';
+import 'package:music_store/src/model/furniture.dart';
+import 'package:music_store/src/view/screen/home_screen.dart';
+import 'package:music_store/src/view/widget/color_picker.dart';
+import 'package:music_store/src/view/widget/counter_button.dart';
+import 'package:music_store/src/view/widget/rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:office_furniture_store/core/app_extension.dart';
-import 'package:office_furniture_store/src/model/furniture.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:office_furniture_store/src/view/widget/rating_bar.dart';
-import 'package:office_furniture_store/src/view/widget/color_picker.dart';
-import 'package:office_furniture_store/src/view/screen/home_screen.dart';
-import 'package:office_furniture_store/src/view/widget/counter_button.dart';
-import 'package:office_furniture_store/src/controller/music_instrumental_controller.dart';
 
 class OfficeFurnitureDetailScreen extends StatelessWidget {
   final Furniture furniture;
@@ -78,7 +78,7 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
               ),
             ),
             onPressed: () => controller.addToCart(furniture),
-            child: const Text("Add to cart"),
+            child: const Text("Add to "),
           )
         ],
       ),

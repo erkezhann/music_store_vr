@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:office_furniture_store/core/app_color.dart';
-import 'package:office_furniture_store/core/app_data.dart';
-import 'package:office_furniture_store/src/view/screen/cart_screen.dart';
-import 'package:office_furniture_store/src/view/screen/profile_screen.dart';
-import 'package:office_furniture_store/src/view/screen/favorite_screen.dart';
-import 'package:office_furniture_store/src/controller/music_instrumental_controller.dart';
-import 'package:office_furniture_store/src/view/screen/music_instrument_list_screen.dart';
+import 'package:music_store/core/app_color.dart';
+import 'package:music_store/core/app_data.dart';
+import 'package:music_store/src/controller/music_instrumental_controller.dart';
+import 'package:music_store/src/view/screen/cart_screen.dart';
+import 'package:music_store/src/view/screen/favorite_screen.dart';
+import 'package:music_store/src/view/screen/music_instrument_list_screen.dart';
+import 'package:music_store/src/view/screen/profile_screen.dart';
 
 final OfficeFurnitureController controller =
     Get.put(OfficeFurnitureController());
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   final List<Widget> screens = const [
-    OfficeFurnitureListScreen(),
+    MusicStoreListScreen(),
     CartScreen(),
     FavoriteScreen(),
     ProfileScreen()
@@ -35,7 +35,9 @@ class HomeScreen extends StatelessWidget {
             items: AppData.bottomNavigationItems
                 .map(
                   (element) => BottomNavigationBarItem(
-                      icon: element.icon, label: element.label),
+                    icon: element.icon,
+                    label: element.label,
+                  ),
                 )
                 .toList(),
           );

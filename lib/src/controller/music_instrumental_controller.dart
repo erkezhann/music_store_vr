@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:office_furniture_store/core/app_extension.dart';
-import 'package:office_furniture_store/src/model/furniture.dart';
+import 'package:music_store/core/app_extension.dart';
+import 'package:music_store/src/model/furniture.dart';
 
 class OfficeFurnitureController extends GetxController {
   RxInt currentBottomNavItemIndex = 0.obs;

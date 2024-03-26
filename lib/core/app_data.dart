@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:office_furniture_store/core/app_asset.dart';
-import 'package:office_furniture_store/src/model/furniture.dart';
-import 'package:office_furniture_store/src/model/instrument_color.dart';
-import 'package:office_furniture_store/src/model/bottom_navigation_item.dart';
+import 'package:music_store/core/app_asset.dart';
+import 'package:music_store/src/model/bottom_navigation_item.dart';
+import 'package:music_store/src/model/furniture.dart';
+import 'package:music_store/src/model/instrument_color.dart';
 
 class AppData {
   const AppData._();
@@ -22,7 +22,7 @@ class AppData {
     Furniture(
       quantity: 1,
       isFavorite: false,
-      title: 'Comhar All-in-One Standing Desk Glass',
+      title: 'Гитара',
       description: dummyText,
       price: 469.99,
       score: 3.5,
@@ -43,7 +43,7 @@ class AppData {
     Furniture(
       isFavorite: false,
       quantity: 1,
-      title: 'Ergonomic Gaming Desk with Mouse Pad',
+      title: 'Скрипка',
       description: dummyText,
       price: 299.99,
       score: 4.5,
@@ -62,7 +62,7 @@ class AppData {
     Furniture(
       quantity: 1,
       isFavorite: false,
-      title: 'Kana Pro Bamboo Standing Desk',
+      title: 'Фортепиано',
       description: dummyText,
       price: 659.99,
       score: 3.0,
@@ -82,7 +82,7 @@ class AppData {
     Furniture(
       quantity: 1,
       isFavorite: false,
-      title: 'Soutien Ergonomic Office Chair',
+      title: 'Барабан',
       description: dummyText,
       price: 349.99,
       score: 2.5,
@@ -102,7 +102,7 @@ class AppData {
     Furniture(
       quantity: 1,
       isFavorite: false,
-      title: 'Theodore Standing Desk',
+      title: 'Саксафон',
       description: dummyText,
       price: 499.99,
       score: 2.8,
@@ -121,9 +121,10 @@ class AppData {
   ];
 
   static List<BottomNavigationItem> bottomNavigationItems = [
-    const BottomNavigationItem(Icon(Icons.home), 'Home'),
-    const BottomNavigationItem(Icon(Icons.add_shopping_cart_rounded), 'Shopping cart'),
-    const BottomNavigationItem(Icon(Icons.bookmark), 'Favorite'),
-    const BottomNavigationItem(Icon(Icons.person), 'Profile')
+    const BottomNavigationItem(Icon(Icons.home), 'Главная'),
+    const BottomNavigationItem(
+        Icon(Icons.add_shopping_cart_rounded), 'Корзина'),
+    const BottomNavigationItem(Icon(Icons.bookmark), 'Любимые'),
+    const BottomNavigationItem(Icon(Icons.person), 'Профиль')
   ];
 }

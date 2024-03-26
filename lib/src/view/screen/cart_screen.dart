@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:office_furniture_store/core/app_color.dart';
-import 'package:office_furniture_store/core/app_style.dart';
-import 'package:office_furniture_store/src/view/widget/bottom_bar.dart';
-import 'package:office_furniture_store/src/view/screen/home_screen.dart';
-import 'package:office_furniture_store/src/view/widget/empty_widget.dart';
-import 'package:office_furniture_store/src/view/widget/counter_button.dart';
-import 'package:office_furniture_store/src/view/widget/cart_list_view.dart';
-import 'package:office_furniture_store/src/controller/music_instrumental_controller.dart';
+import 'package:music_store/core/app_color.dart';
+import 'package:music_store/core/app_style.dart';
+import 'package:music_store/src/controller/music_instrumental_controller.dart';
+import 'package:music_store/src/view/screen/home_screen.dart';
+import 'package:music_store/src/view/widget/bottom_bar.dart';
+import 'package:music_store/src/view/widget/cart_list_view.dart';
+import 'package:music_store/src/view/widget/counter_button.dart';
+import 'package:music_store/src/view/widget/empty_widget.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

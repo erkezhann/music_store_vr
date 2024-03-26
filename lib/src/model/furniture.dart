@@ -1,4 +1,4 @@
-import 'package:office_furniture_store/src/model/instrument_color.dart';
+import 'package:music_store/src/model/instrument_color.dart';
 
 class Furniture {
   String title;

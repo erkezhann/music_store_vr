@@ -1,14 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:office_furniture_store/core/app_data.dart';
-import 'package:office_furniture_store/core/app_style.dart';
-import 'package:office_furniture_store/src/model/furniture.dart';
-import 'package:office_furniture_store/src/view/widget/music_instrument_list_view.dart';
-import 'package:office_furniture_store/src/view/screen/music_instrument_detail_screen.dart';
+import 'package:music_store/core/app_data.dart';
+import 'package:music_store/core/app_style.dart';
+import 'package:music_store/src/model/furniture.dart';
+import 'package:music_store/src/view/screen/music_instrument_detail_screen.dart';
+import 'package:music_store/src/view/widget/music_instrument_list_view.dart';
 
-class OfficeFurnitureListScreen extends StatelessWidget {
-  const OfficeFurnitureListScreen({super.key});
+class MusicStoreListScreen extends StatelessWidget {
+  const MusicStoreListScreen({super.key});
 
   PreferredSize _appBar() {
+    final user = FirebaseAuth.instance.currentUser;
     return PreferredSize(
       preferredSize: const Size.fromHeight(120),
       child: SafeArea(
@@ -17,11 +19,12 @@ class OfficeFurnitureListScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Hello Sina", style: h2Style),
-                  Text("Buy Your favorite desk", style: h3Style),
+                  Text(user != null ? '${user.displayName}' : '',
+                      style: h2Style),
+                  const Text("Купите любимые инструменты", style: h3Style),
                 ],
               ),
               IconButton(onPressed: () {}, icon: const Icon(Icons.menu))

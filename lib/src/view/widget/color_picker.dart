@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:office_furniture_store/src/model/instrument_color.dart';
+import 'package:music_store/src/model/instrument_color.dart';
 
 class ColorPicker extends StatefulWidget {
   final List<FurnitureColor> colors;

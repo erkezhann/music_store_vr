@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "970105539781",
+    "project_id": "musicstorevr-aa200",
+    "storage_bucket": "musicstorevr-aa200.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970105539781:android:792c1bd36e351d890274ac",
+        "android_client_info": {
+          "package_name": "com.sinasys.office_furniture_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoZQJFwcOmnt52KwxatSSBPAa1mQuxrIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

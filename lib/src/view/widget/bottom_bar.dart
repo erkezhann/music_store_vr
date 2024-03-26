@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:office_furniture_store/core/app_style.dart';
+import 'package:music_store/core/app_style.dart';
 
 class BottomBar extends StatelessWidget {
   final VoidCallback? onTap;
