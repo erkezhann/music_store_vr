@@ -66,7 +66,9 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              FittedBox(child: Text("\$${furniture.price}", style: h2Style))
+              FittedBox(
+                child: Text("\$${furniture.price}", style: h2Style),
+              ),
             ],
           ),
           ElevatedButton(
@@ -87,8 +89,8 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
 
   Widget furnitureImageSlider(double height) {
     return Container(
-      padding: const EdgeInsets.only(left: 15, right: 15, bottom: 10),
-      height: height * 0.5,
+      padding: const EdgeInsets.only(left: 5, right: 5, bottom: 10),
+      height: height * 0.35,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -97,7 +99,7 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
             itemCount: furniture.images.length,
             itemBuilder: (_, index) {
               return Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: const EdgeInsets.only(left: 5),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Hero(
