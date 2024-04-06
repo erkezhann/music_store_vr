@@ -8,14 +8,14 @@ import 'package:music_store/src/view/screen/favorite_screen.dart';
 import 'package:music_store/src/view/screen/music_instrument_list_screen.dart';
 import 'package:music_store/src/view/screen/profile_screen.dart';
 
-final OfficeFurnitureController controller =
-    Get.put(OfficeFurnitureController());
+final MusicInstrumentController controller =
+    Get.put(MusicInstrumentController());
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   final List<Widget> screens = const [
-    MusicStoreListScreen(),
+    MusicInstrumentListScreen(),
     CartScreen(),
     FavoriteScreen(),
     ProfileScreen()

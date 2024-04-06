@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class FurnitureColor {
+class InstrumentColor {
   Color color;
   bool isSelected;
 
-  FurnitureColor({required this.color, this.isSelected = false});
+  InstrumentColor({required this.color, this.isSelected = false});
 }

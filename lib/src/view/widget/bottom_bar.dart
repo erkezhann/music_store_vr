@@ -10,9 +10,9 @@ class BottomBar extends StatelessWidget {
   const BottomBar({
     super.key,
     this.onTap,
-    this.priceLabel = "Price",
+    this.priceLabel = "Цена",
     required this.priceValue,
-    this.buttonLabel = "Add to cart",
+    this.buttonLabel = "Добавить в корзину",
   });
 
   @override

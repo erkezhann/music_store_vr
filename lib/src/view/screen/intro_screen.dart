@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music_store/core/app_style.dart';
-import 'package:music_store/src/view/screen/home_screen.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -14,12 +13,7 @@ class IntroScreen extends StatelessWidget {
           textDirection: TextDirection.rtl,
           child: ElevatedButton.icon(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const HomeScreen(),
-                ),
-              );
+              Navigator.pushNamed(context, '/home');
             },
             style: ButtonStyle(
               padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(

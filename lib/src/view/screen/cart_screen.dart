@@ -14,7 +14,7 @@ class CartScreen extends StatelessWidget {
 
   PreferredSizeWidget _appBar() {
     return AppBar(
-      title: const Text("Cart", style: h2Style),
+      title: const Text("Корзина", style: h2Style),
       actions: [
         IconButton(
           splashRadius: 20.0,
@@ -32,33 +32,37 @@ class CartScreen extends StatelessWidget {
       bottomNavigationBar: Obx(
         () {
           return BottomBar(
-            priceLabel: "Total price",
+            priceLabel: "Общая цена",
             priceValue: "\$${controller.totalPrice.value.toStringAsFixed(2)}",
-            buttonLabel: "Checkout",
-            onTap: controller.totalPrice > 0 ? () {} : null,
+            buttonLabel: "Купить",
+            onTap: controller.totalPrice > 0
+                ? () {
+                    Navigator.pushNamed(context, '');
+                  }
+                : null,
           );
         },
       ),
       body: GetBuilder(
-        builder: (OfficeFurnitureController controller) {
-          return controller.cartFurniture.isNotEmpty
+        builder: (MusicInstrumentController controller) {
+          return controller.cartInstrument.isNotEmpty
               ? Padding(
                   padding: const EdgeInsets.all(15),
                   child: CartListView(
-                    furnitureItems: controller.cartFurniture,
-                    counterButton: (furniture) {
+                    instrumentItems: controller.cartInstrument,
+                    counterButton: (instrument) {
                       return CounterButton(
                         orientation: Axis.vertical,
                         onIncrementSelected: () =>
-                            controller.increaseItem(furniture),
+                            controller.increaseItem(instrument),
                         onDecrementSelected: () =>
-                            controller.decreaseItem(furniture),
-                        label: furniture.quantity,
+                            controller.decreaseItem(instrument),
+                        label: instrument.quantity,
                       );
                     },
                   ),
                 )
-              : const EmptyWidget(title: "Empty");
+              : const EmptyWidget(title: "Пусто");
         },
       ),
     );

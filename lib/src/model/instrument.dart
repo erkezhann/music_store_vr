@@ -1,22 +1,20 @@
 import 'package:music_store/src/model/instrument_color.dart';
 
-class Furniture {
+class Instrument {
   String title;
   String description;
   double price;
   int quantity;
-  double score;
-  List<String> images;
+  String model;
   bool isFavorite;
-  List<FurnitureColor> colors;
+  List<InstrumentColor> colors;
 
-  Furniture({
+  Instrument({
     required this.title,
     required this.description,
     required this.price,
     this.quantity = 1,
-    required this.score,
-    required this.images,
+    required this.model,
     this.isFavorite = false,
     required this.colors,
   });

@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:music_store/core/app_theme.dart';
 import 'package:music_store/firebase_options.dart';
-import 'package:music_store/src/view/screen/intro_screen.dart';
+import 'package:music_store/src/config/router.dart';
 import 'dart:ui' show PointerDeviceKind;
 
 void main() async {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           PointerDeviceKind.touch,
         },
       ),
-      home: const IntroScreen(),
+      routes: routes,
       theme: AppTheme.lightTheme,
     );
   }

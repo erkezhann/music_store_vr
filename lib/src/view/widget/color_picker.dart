@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:music_store/src/model/instrument_color.dart';
 
 class ColorPicker extends StatefulWidget {
-  final List<FurnitureColor> colors;
+  final List<InstrumentColor> colors;
 
   const ColorPicker(this.colors, {super.key});
 

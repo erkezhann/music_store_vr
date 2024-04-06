@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:music_store/core/app_extension.dart';
-import 'package:music_store/src/model/furniture.dart';
+import 'package:music_store/src/model/instrument.dart';
 
-class OfficeFurnitureController extends GetxController {
+class MusicInstrumentController extends GetxController {
   RxInt currentBottomNavItemIndex = 0.obs;
   RxInt currentPageViewItemIndicator = 0.obs;
-  RxList<Furniture> cartFurniture = <Furniture>[].obs;
-  RxList<Furniture> favoriteFurnitureList = <Furniture>[].obs;
+  RxList<Instrument> cartInstrument = <Instrument>[].obs;
+  RxList<Instrument> favoriteInstrumentList = <Instrument>[].obs;
   RxDouble totalPrice = 0.0.obs;
 
   switchBetweenBottomNavigationItems(int currentIndex) {
@@ -17,49 +17,49 @@ class OfficeFurnitureController extends GetxController {
     currentPageViewItemIndicator.value = currentIndex;
   }
 
-  isFavoriteFurniture(Furniture furniture) {
-    furniture.isFavorite = !furniture.isFavorite;
+  isFavoriteFurniture(Instrument instrument) {
+    instrument.isFavorite = !instrument.isFavorite;
     update();
-    if (furniture.isFavorite) {
-      favoriteFurnitureList.add(furniture);
+    if (instrument.isFavorite) {
+      favoriteInstrumentList.add(instrument);
     }
-    if (!furniture.isFavorite) {
-      favoriteFurnitureList.removeWhere((element) => element == furniture);
+    if (!instrument.isFavorite) {
+      favoriteInstrumentList.removeWhere((element) => element == instrument);
     }
   }
 
-  void increaseItem(Furniture furniture) {
-    furniture.quantity++;
+  void increaseItem(Instrument instrument) {
+    instrument.quantity++;
     update();
     calculateTotalPrice();
   }
 
-  void decreaseItem(Furniture furniture) {
-    furniture.quantity = furniture.quantity-- < 1 ? 0 : furniture.quantity--;
+  void decreaseItem(Instrument instrument) {
+    instrument.quantity = instrument.quantity-- < 1 ? 0 : instrument.quantity--;
     calculateTotalPrice();
     update();
-    if (furniture.quantity < 1) {
-      cartFurniture.removeWhere((element) => element == furniture);
+    if (instrument.quantity < 1) {
+      cartInstrument.removeWhere((element) => element == instrument);
     }
   }
 
-  addToCart(Furniture furniture) {
-    if (furniture.quantity > 0) {
-      cartFurniture.add(furniture);
-      cartFurniture.assignAll(cartFurniture.distinctBy((item) => item));
+  addToCart(Instrument instrument) {
+    if (instrument.quantity > 0) {
+      cartInstrument.add(instrument);
+      cartInstrument.assignAll(cartInstrument.distinctBy((item) => item));
       calculateTotalPrice();
     }
   }
 
   calculateTotalPrice() {
     totalPrice.value = 0;
-    for (var element in cartFurniture) {
+    for (var element in cartInstrument) {
       totalPrice.value += element.quantity * element.price;
     }
   }
 
   void clearCart() {
-    cartFurniture.clear();
+    cartInstrument.clear();
     totalPrice.value = 0;
     update();
   }

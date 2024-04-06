@@ -4,31 +4,29 @@ import 'package:music_store/core/app_color.dart';
 import 'package:music_store/core/app_extension.dart';
 import 'package:music_store/core/app_style.dart';
 import 'package:music_store/src/controller/music_instrumental_controller.dart';
-import 'package:music_store/src/model/furniture.dart';
+import 'package:music_store/src/model/instrument.dart';
 import 'package:music_store/src/view/screen/home_screen.dart';
 import 'package:music_store/src/view/widget/color_picker.dart';
 import 'package:music_store/src/view/widget/counter_button.dart';
-import 'package:music_store/src/view/widget/rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OfficeFurnitureDetailScreen extends StatelessWidget {
-  final Furniture furniture;
+class MusicInstrumentDetailScreen extends StatelessWidget {
+  final Instrument instrument;
 
-  const OfficeFurnitureDetailScreen({
+  const MusicInstrumentDetailScreen({
     super.key,
-    required this.furniture,
+    required this.instrument,
   });
 
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
       actions: [
         GetBuilder(
-          builder: (OfficeFurnitureController controller) {
+          builder: (MusicInstrumentController controller) {
             return IconButton(
               splashRadius: 18.0,
-              onPressed: () => controller.isFavoriteFurniture(furniture),
-              icon: furniture.isFavorite
+              onPressed: () => controller.isFavoriteFurniture(instrument),
+              icon: instrument.isFavorite
                   ? const Icon(Icons.bookmark, color: Colors.black)
                   : const Icon(Icons.bookmark_border, color: Colors.black),
             );
@@ -42,14 +40,14 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
           Navigator.pop(context);
         },
       ),
-      title: Text(furniture.title, style: h2Style),
+      title: Text(instrument.title, style: h2Style),
     );
   }
 
   Widget bottomBar() {
     return Container(
       padding: const EdgeInsets.all(15),
-      height: 90,
+      height: 100,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -58,7 +56,7 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
             children: [
               const FittedBox(
                 child: Text(
-                  'Price',
+                  'Цена',
                   style: TextStyle(
                     color: Colors.black45,
                     fontWeight: FontWeight.bold,
@@ -67,7 +65,7 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               FittedBox(
-                child: Text("\$${furniture.price}", style: h2Style),
+                child: Text("${instrument.price}₸", style: h2Style),
               ),
             ],
           ),
@@ -79,56 +77,24 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            onPressed: () => controller.addToCart(furniture),
-            child: const Text("Add to "),
+            onPressed: () => controller.addToCart(instrument),
+            child: const Text(
+              "Добавить",
+              style: TextStyle(color: Colors.white),
+            ),
           )
         ],
       ),
     ).fadeAnimation(1.3);
   }
 
-  Widget furnitureImageSlider(double height) {
+  Widget instrumentImageSlider(double height) {
     return Container(
       padding: const EdgeInsets.only(left: 5, right: 5, bottom: 10),
       height: height * 0.35,
-      child: Stack(
+      child: const Stack(
         alignment: Alignment.bottomCenter,
-        children: [
-          PageView.builder(
-            onPageChanged: controller.switchBetweenPageViewItems,
-            itemCount: furniture.images.length,
-            itemBuilder: (_, index) {
-              return Padding(
-                padding: const EdgeInsets.only(left: 5),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Hero(
-                    tag: index,
-                    child: Image.asset(
-                      furniture.images[index],
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-          Positioned(
-            bottom: 20,
-            child: Obx(
-              () {
-                return AnimatedSmoothIndicator(
-                  effect: const WormEffect(
-                    dotColor: Colors.white38,
-                    activeDotColor: Colors.white,
-                  ),
-                  activeIndex: controller.currentPageViewItemIndicator.value,
-                  count: furniture.images.length,
-                );
-              },
-            ),
-          ),
-        ],
+        children: [],
       ),
     );
   }
@@ -152,24 +118,18 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                furnitureImageSlider(height),
-                Center(
-                  child: StarRatingBar(
-                    score: furniture.score,
-                    itemSize: 25,
-                  ).fadeAnimation(0.4),
-                ),
+                instrumentImageSlider(height),
                 Padding(
                   padding: const EdgeInsets.only(top: 20, bottom: 10),
-                  child: const Text(
-                    "Synopsis",
+                  child: Text(
+                    instrument.title,
                     style: h2Style,
                     textAlign: TextAlign.end,
                   ).fadeAnimation(0.6),
                 ),
                 Text(
-                  furniture.description,
-                  maxLines: 5,
+                  instrument.description,
+                  maxLines: 10,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(color: Colors.black45),
                 ).fadeAnimation(0.8),
@@ -177,19 +137,19 @@ class OfficeFurnitureDetailScreen extends StatelessWidget {
                 Row(
                   children: [
                     const Text(
-                      "Color :",
+                      "Цвет: ",
                       style: h2Style,
                       textAlign: TextAlign.end,
                     ),
-                    Expanded(child: ColorPicker(furniture.colors)),
+                    Expanded(child: ColorPicker(instrument.colors)),
                     Expanded(child: GetBuilder(
-                      builder: (OfficeFurnitureController controller) {
+                      builder: (MusicInstrumentController controller) {
                         return CounterButton(
-                          label: furniture.quantity,
+                          label: instrument.quantity,
                           onIncrementSelected: () =>
-                              controller.increaseItem(furniture),
+                              controller.increaseItem(instrument),
                           onDecrementSelected: () =>
-                              controller.decreaseItem(furniture),
+                              controller.decreaseItem(instrument),
                         );
                       },
                     ))
