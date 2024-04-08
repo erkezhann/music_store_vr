@@ -1,9 +1,7 @@
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:music_store/core/app_color.dart';
 import 'package:music_store/core/app_extension.dart';
-import 'package:music_store/core/app_style.dart';
 import 'package:music_store/src/controller/music_instrumental_controller.dart';
 import 'package:music_store/src/model/instrument.dart';
 import 'package:music_store/src/ui/screen/home/home_screen.dart';

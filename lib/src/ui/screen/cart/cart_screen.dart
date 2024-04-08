@@ -43,8 +43,10 @@ class CartScreen extends StatelessWidget {
             priceValue: "\$${controller.totalPrice.value.toStringAsFixed(2)}",
             buttonLabel: "Купить",
             onTap: controller.totalPrice > 0
-                ? () {
-                    Navigator.pushNamed(context, '/');
+                ? () async {
+                    await controller.sendOrderToFirestore();
+                    const AlertDialog();
+                    controller.clearCart();
                   }
                 : null,
           );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music_store/core/app_extension.dart';
-import 'package:music_store/core/app_style.dart';
 import 'package:music_store/src/model/instrument.dart';
 
 class CartListView extends StatelessWidget {
@@ -15,6 +14,7 @@ class CartListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return ListView.separated(
       itemCount: instrumentItems.length,
       itemBuilder: (_, index) {
@@ -22,25 +22,37 @@ class CartListView extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(15),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15.0),
-                  child: Image.asset(instrument.model),
+                  child: SizedBox(
+                    height: 300,
+                    child: Image.asset(
+                      instrument.model,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(width: 5),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(instrument.title.addOverFlow, style: h4Style),
-                  const SizedBox(height: 5),
-                  Text("\$${instrument.price}", style: h2Style),
-                  const SizedBox(height: 5),
+                  Text(
+                    instrument.title.addOverFlow,
+                    style: theme.textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    "\$${instrument.price}",
+                    style: theme.textTheme.labelMedium,
+                  ),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
-                      const Text("Цвет: ", style: h4Style),
+                      Text("Цвет: ", style: theme.textTheme.labelMedium),
                       CircleAvatar(
                         radius: 15,
                         child: Container(

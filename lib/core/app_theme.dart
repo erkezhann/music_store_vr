@@ -34,7 +34,7 @@ ThemeData lightTheme = ThemeData(
     labelMedium: TextStyle(
       fontSize: 15.0,
       fontWeight: FontWeight.w500,
-      color: Colors.black,
+      color: Colors.grey,
     ),
   ),
 );

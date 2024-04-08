@@ -42,6 +42,7 @@ dependencies:
   line_awesome_flutter: ^2.0.0
   animate_do: ^3.3.4
   provider: ^6.1.2
+  cloud_firestore: ^4.16.0
 
 
 dev_dependencies:

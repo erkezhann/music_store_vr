@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:music_store/core/app_extension.dart';
 import 'package:music_store/src/model/instrument.dart';
@@ -56,6 +57,25 @@ class MusicInstrumentController extends GetxController {
     for (var element in cartInstrument) {
       totalPrice.value += element.quantity * element.price;
     }
+  }
+
+  Future<void> sendOrderToFirestore() async {
+    final CollectionReference orders =
+        FirebaseFirestore.instance.collection('orders');
+
+    // Формирование списка покупок из корзины
+    List<Map<String, dynamic>> orderItems = cartInstrument.map((instrument) {
+      return {
+        'title': instrument.title,
+        'quantity': instrument.quantity,
+        'color':
+            instrument.color.value.toString(), // Преобразование цвета в строку
+      };
+    }).toList();
+    await orders.add({
+      'items': orderItems,
+      'date': Timestamp.now(),
+    });
   }
 
   void clearCart() {
