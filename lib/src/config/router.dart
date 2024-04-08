@@ -1,8 +1,8 @@
-import 'package:music_store/src/view/screen/home_screen.dart';
-import 'package:music_store/src/view/screen/intro_screen.dart';
-import 'package:music_store/src/view/screen/login_screen.dart';
-import 'package:music_store/src/view/screen/profile_screen.dart';
-import 'package:music_store/src/view/screen/signup_screen.dart';
+import 'package:music_store/src/ui/screen/home/home_screen.dart';
+import 'package:music_store/src/ui/screen/intro/intro_screen.dart';
+import 'package:music_store/src/ui/screen/auth/login_screen.dart';
+import 'package:music_store/src/ui/screen/profile/profile_screen.dart';
+import 'package:music_store/src/ui/screen/auth/signup_screen.dart';
 
 final routes = {
   '/': (context) => const IntroScreen(),

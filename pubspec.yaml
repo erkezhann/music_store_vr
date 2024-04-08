@@ -33,7 +33,6 @@ dependencies:
 
   get: ^4.6.6
   smooth_page_indicator: ^1.1.0
-  flutter_rating_bar: ^4.0.1
   font_awesome_flutter: ^10.6.0
   simple_animations: ^5.0.2
   o3d: ^3.1.0
@@ -42,6 +41,7 @@ dependencies:
   gap: ^3.0.1
   line_awesome_flutter: ^2.0.0
   animate_do: ^3.3.4
+  provider: ^6.1.2
 
 
 dev_dependencies:

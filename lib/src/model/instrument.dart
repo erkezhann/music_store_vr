@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:music_store/src/model/instrument_color.dart';
 
 class Instrument {
@@ -8,6 +9,7 @@ class Instrument {
   String model;
   bool isFavorite;
   List<InstrumentColor> colors;
+  Color color;
 
   Instrument({
     required this.title,
@@ -17,5 +19,6 @@ class Instrument {
     required this.model,
     this.isFavorite = false,
     required this.colors,
+    required this.color,
   });
 }
