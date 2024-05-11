@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:music_store/core/app_style.dart';
 
 class CounterButton extends StatelessWidget {
   final Function() onIncrementSelected;
@@ -19,18 +18,22 @@ class CounterButton extends StatelessWidget {
     return RawMaterialButton(
       constraints: BoxConstraints.tight(const Size(36, 36)),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      fillColor: Colors.white,
+      fillColor: Colors.orange,
       onPressed: () => onTap(),
       child: icon,
     );
   }
 
-  List<Widget> body() {
+  List<Widget> body(BuildContext context) {
+    final theme = Theme.of(context);
     return [
       button(const Icon(Icons.remove), onDecrementSelected),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Text("$label", style: h2Style.copyWith(fontSize: 15)),
+        child: Text(
+          "$label",
+          style: theme.textTheme.labelMedium,
+        ),
       ),
       button(const Icon(Icons.add), onIncrementSelected),
     ];
@@ -39,7 +42,7 @@ class CounterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return orientation == Axis.horizontal
-        ? Row(mainAxisAlignment: MainAxisAlignment.end, children: body())
-        : Column(children: body().reversed.toList());
+        ? Row(mainAxisAlignment: MainAxisAlignment.end, children: body(context))
+        : Column(children: body(context).reversed.toList());
   }
 }

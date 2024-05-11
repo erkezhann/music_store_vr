@@ -1,3 +1,4 @@
+import 'package:babylonjs_viewer/babylonjs_viewer.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:music_store/core/app_color.dart';
@@ -85,21 +86,25 @@ class MusicInstrumentDetailScreen extends StatelessWidget {
     ).fadeAnimation(1.3);
   }
 
-  Widget instrumentImageSlider(double height) {
+  Widget instrumentImageSlider(double height, double width) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 10),
-      height: height * 0.35,
+      height: height * 0.45,
+      width: width,
       color: instrument.color,
-      child: const Stack(
-        alignment: Alignment.bottomCenter,
-        children: [],
-      ),
+      child: instrument.modelBlender.isEmpty
+          ? Image.asset(
+              instrument.model,
+              fit: BoxFit.fitHeight,
+            )
+          : BabylonJSViewer(
+              src: instrument.modelBlender,
+            ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    final size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
     return PopScope(
       canPop: true,
@@ -117,7 +122,7 @@ class MusicInstrumentDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                instrumentImageSlider(height),
+                instrumentImageSlider(size.height, size.width),
                 Padding(
                   padding: const EdgeInsets.only(top: 20, bottom: 10),
                   child: Text(
