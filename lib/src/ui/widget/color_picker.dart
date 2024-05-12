@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:music_store/src/model/instrument.dart';
 import 'package:music_store/src/model/instrument_color.dart';
 
 class ColorPicker extends StatefulWidget {
   final List<InstrumentColor> colors;
+  final Instrument instrument;
 
-  const ColorPicker(this.colors, {super.key});
+  const ColorPicker(this.colors, this.instrument, {super.key});
 
   @override
   State<ColorPicker> createState() => _ColorPickerState();
@@ -36,9 +38,15 @@ class _ColorPickerState extends State<ColorPicker> {
                     for (var element in widget.colors) {
                       element.isSelected = false;
                     }
-                    setState(() {
-                      widget.colors[index].isSelected = true;
-                    });
+                    setState(
+                      () {
+                        widget.colors[index].isSelected = true;
+                        widget.instrument.selectedModel =
+                            widget.instrument.secondModel;
+                        print(
+                            'Selected Model: ${widget.instrument.selectedModel}');
+                      },
+                    );
                   },
                   child: CircleAvatar(
                     backgroundColor: widget.colors[index].color,

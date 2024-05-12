@@ -30,7 +30,7 @@ class CartListView extends StatelessWidget {
                   child: SizedBox(
                     height: 300,
                     child: Image.asset(
-                      instrument.model,
+                      instrument.image,
                       fit: BoxFit.contain,
                     ),
                   ),

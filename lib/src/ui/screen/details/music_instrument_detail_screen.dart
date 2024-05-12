@@ -91,13 +91,13 @@ class MusicInstrumentDetailScreen extends StatelessWidget {
       height: height * 0.45,
       width: width,
       color: instrument.color,
-      child: instrument.modelBlender.isEmpty
+      child: instrument.firstModel.isEmpty
           ? Image.asset(
-              instrument.model,
+              instrument.image,
               fit: BoxFit.fitHeight,
             )
           : BabylonJSViewer(
-              src: instrument.modelBlender,
+              src: instrument.selectedModel,
             ),
     );
   }
@@ -145,7 +145,7 @@ class MusicInstrumentDetailScreen extends StatelessWidget {
                       style: theme.textTheme.headlineLarge,
                       textAlign: TextAlign.end,
                     ),
-                    Expanded(child: ColorPicker(instrument.colors)),
+                    Expanded(child: ColorPicker(instrument.colors, instrument)),
                     Expanded(child: GetBuilder(
                       builder: (MusicInstrumentController controller) {
                         return CounterButton(

@@ -6,8 +6,10 @@ class Instrument {
   String description;
   double price;
   int quantity;
-  String model;
-  String modelBlender;
+  String image;
+  String selectedModel;
+  String firstModel;
+  String secondModel;
   bool isFavorite;
   List<InstrumentColor> colors;
   Color color;
@@ -17,8 +19,10 @@ class Instrument {
     required this.description,
     required this.price,
     this.quantity = 1,
-    required this.model,
-    required this.modelBlender,
+    required this.image,
+    required this.selectedModel,
+    required this.firstModel,
+    required this.secondModel,
     this.isFavorite = false,
     required this.colors,
     required this.color,

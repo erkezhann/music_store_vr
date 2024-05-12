@@ -26,7 +26,7 @@ class InstrumentListView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
         child: Image.asset(
           fit: BoxFit.contain,
-          instrument.model,
+          instrument.image,
           width: 200,
           height: 250,
         ),
