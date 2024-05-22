@@ -11,12 +11,14 @@ ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: AppColor.lightAppBg,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: AppColor.darkAppBg,
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ),
+        backgroundColor: AppColor.lightOrange,
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        textStyle: const TextStyle(
+          color: Colors.black,
+        )),
   ),
   iconTheme: const IconThemeData(
     color: Colors.black,
@@ -47,8 +49,14 @@ ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: AppColor.lightBlack,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.orange,
-    ),
+        backgroundColor: AppColor.lightOrange,
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        textStyle: const TextStyle(
+          color: Colors.black,
+        )),
   ),
   iconTheme: const IconThemeData(
     color: Colors.white,

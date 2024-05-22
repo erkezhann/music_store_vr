@@ -16,13 +16,13 @@ class IntroScreen extends StatelessWidget {
               Navigator.pushNamed(context, '/home');
             },
             style: ButtonStyle(
-              padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
+              padding: WidgetStateProperty.all<EdgeInsetsGeometry?>(
                 const EdgeInsets.all(8),
               ),
-              backgroundColor: MaterialStateProperty.all(
+              backgroundColor: WidgetStateProperty.all(
                 Colors.white.withOpacity(0.4),
               ),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25.0),
                 ),

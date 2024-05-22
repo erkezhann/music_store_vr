@@ -43,6 +43,7 @@ dependencies:
   provider: ^6.1.2
   cloud_firestore: ^4.16.0
   babylonjs_viewer: ^1.0.1
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,7 @@ flutter:
     - assets/models/
     - assets/models/gitar/
     - assets/models/saxophone/
+    - assets/images/icons/
 
   fonts:
     - family: Poppins

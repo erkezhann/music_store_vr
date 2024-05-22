@@ -36,14 +36,15 @@ class BottomBar extends StatelessWidget {
               FittedBox(
                 child: Text(
                   priceValue,
-                  style: theme.textTheme.labelMedium,
+                  style: theme.textTheme.bodyMedium,
                 ),
               ),
             ],
           ),
           ElevatedButton(
+            style: theme.elevatedButtonTheme.style,
             onPressed: onTap,
-            child: Text(buttonLabel, style: theme.textTheme.labelMedium),
+            child: Text(buttonLabel, style: theme.textTheme.bodyMedium),
           ),
         ],
       ),

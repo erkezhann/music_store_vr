@@ -43,8 +43,6 @@ class _ColorPickerState extends State<ColorPicker> {
                         widget.colors[index].isSelected = true;
                         widget.instrument.selectedModel =
                             widget.instrument.secondModel;
-                        print(
-                            'Selected Model: ${widget.instrument.selectedModel}');
                       },
                     );
                   },
