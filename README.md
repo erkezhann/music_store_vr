@@ -1,1 +1,1 @@
-music_store_app
+Erkezhan Kussainova, Diploma Project
